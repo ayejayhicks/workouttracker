@@ -14,8 +14,8 @@ Sequelize
 Heroku/JawsDB  
 
 ### Links
-[Github] (https://github.com/ayejayhicks/notetaker)
-[Heroku] ( )
+[Github] (https://github.com/ayejayhicks/notetaker)  
+[Heroku / MongoDB Atlas] (https://limitless-garden-35270.herokuapp.com/)
 
 ### Screenshots  
  
