@@ -1,7 +1,25 @@
 const Workout = require("/models/workout.js")
 
 module.exports = function(app){ 
-    app.get("/api/workouts",function(req,res){  
+    app.get("/apiroutes/workouts",function(req,res){  
+        Workout.find()
+        .then(data =>{  
+            res.json(data)
+        })
+        .catch(err => { 
+            res.json(err)
+        })
+    });
+
+    app.post("/apiroutes/workouts",function (req,res){    
+        Workout.create({})
+        .then(data => res.json(data))
+        .catch(err => { 
+            res.json(err)
+        })
+    });
+
+    app.get("/apiroutes/workouts/range",function(req,res){  
         Workout.find()
         .then(data =>{  
             res.json(data)
@@ -12,7 +30,7 @@ module.exports = function(app){
     });
 
 
-    app.post("/api/workouts",function (req,res){    
+    app.post("/apiroutes/workouts/range",function (req,res){    
         Workout.create({})
         .then(data => res.json(data))
         .catch(err => { 
@@ -20,26 +38,7 @@ module.exports = function(app){
         })
     });
 
-    app.get("/api/workouts/range",function(req,res){  
-        Workout.find()
-        .then(data =>{  
-            res.json(data)
-        })
-        .catch(err => { 
-            res.json(err)
-        })
-    });
-
-
-    app.post("/api/workouts/range",function (req,res){    
-        Workout.create({})
-        .then(data => res.json(data))
-        .catch(err => { 
-            res.json(err)
-        })
-    });
-
-    app.put("/api/workouts/:id",({body,params},res)=>{   
+    app.put("/apiroutes/workouts/:id",({body,params},res)=>{   
         Workout.findByIdAndUpdate(  
          params.id,
          {$push:{exercises:body} },

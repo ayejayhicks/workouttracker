@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 
 const app = express();
+
 const PORT = process.env.PORT || 8080;
 
 app.use(morgan("dev"));
@@ -19,8 +20,8 @@ mongoose.connect(MONGODB_URI,{
     useFindAndModify: false
 })
 
-require("../routes/apiRoutes")(app);
-require("../routes/htmlRoutes")(app);
+require("./routes/apiroutes")(app);
+require("./routes/htmlroutes")(app);
 
 app.listen(PORT,function(){ 
     console.log(`App listening on Port ${PORT}`);
