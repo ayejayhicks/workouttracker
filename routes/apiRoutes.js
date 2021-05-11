@@ -1,7 +1,9 @@
 const Workout = require("../models/workout")
 var db = require("../models");
 var path = require("path");
+
 module.exports = function (app) {
+    
     app.get("/api/workouts", function (req, res) {
         Workout.find({})
             .then(workouts => {
